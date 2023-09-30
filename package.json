@@ -12,7 +12,8 @@
   "author": "Diego Galvão",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.5.3"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
