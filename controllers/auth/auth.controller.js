@@ -2,8 +2,9 @@ import User from "../../models/user.model.js";
 import bcryptjs from "bcryptjs";
 
 import { AuthValidator } from "./validation.auth.js";
+import { errorHandler } from "../../utils/error.js";
 
-export const signup = async (req, res) => {
+export const signup = async (req, res, next) => {
   const { username, name, email, password, confirmPassword } = req.body;
 
   try {
@@ -32,6 +33,6 @@ export const signup = async (req, res) => {
     await newUser.save();
     res.status(201).json("User created!");
   } catch (error) {
-    res.status(400).json(error.message);
+    next(errorHandler(400, error.message));
   }
 };
