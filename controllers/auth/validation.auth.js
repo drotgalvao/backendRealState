@@ -43,7 +43,12 @@ export class AuthValidator {
         if (!this.hasNumber(password)) {
             throw new Error('Password must include at least one number');
         }
+
+        if (!this.hasSpecialCharacter(password)) {
+            throw new Error('Password must include at least one special character');
+        }
     }
+    
 
     static isValidEmailFormat(email) {
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -84,4 +89,11 @@ export class AuthValidator {
         const numberRegex = /\d/;
         return numberRegex.test(password);
     }
+
+    static hasSpecialCharacter(password) {
+        const specialCharRegex = /[!@#$%;*(){}_+^&]/;
+        return specialCharRegex.test(password);
+    }
+    
+    
 }
