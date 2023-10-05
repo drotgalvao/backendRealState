@@ -1,6 +1,6 @@
 import bcryptjs from "bcryptjs";
 import User from "../../models/user.model.js";
-import { errorHandler } from "../../utils/error.js";
+import { errorHandler } from "../../utils/errorHandler.js";
 
 export const test = (req, res) => {
   res.send("Api route is working!");
